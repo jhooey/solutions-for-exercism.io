@@ -9,7 +9,8 @@ class Grains
     @squares[x-1]
   end
   
-  def self.calculate_total
-    0
+  def total
+    @squares.inject(:+)
   end
 end
+
