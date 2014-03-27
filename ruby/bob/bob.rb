@@ -9,18 +9,14 @@ class Bob
     expression = expression.strip
     
     if is_yelling(expression)
-      return @responses['yell']
+      @responses['yell']
+    elsif is_question(expression)
+      @responses['question']
+    elsif is_nothing(expression)
+      @responses['nothing']
+    else
+      @responses['']
     end
-    
-    if is_question(expression)
-      return @responses['question']
-    end
-    
-    if is_nothing (expression)
-      return @responses['nothing']
-    end
-    
-    return @responses['']
   end
   
   def is_question (expression)
