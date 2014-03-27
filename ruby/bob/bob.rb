@@ -20,14 +20,14 @@ class Bob
   end
   
   def is_question (expression)
-    return expression[-1] == '?'
+    expression[-1] == '?'
   end
   
   def is_yelling (expression)
-    return ! expression.upcase! && /[A-Z]+/.match(expression)
+    !expression.upcase! && /[A-Z]+/.match(expression)
   end
   
   def is_nothing (expression)
-    return expression == ''
+    expression == ''
   end
 end
