@@ -4,15 +4,15 @@ class StringType
   end
   
   
-  def is_question
+  def is_question?
     @expression[-1] == '?'
   end
   
-  def is_yelling
+  def is_yelling?
     !(@expression.upcase!) && /[A-Z]+/.match(@expression)
   end
   
-  def is_nothing
+  def is_nothing?
     @expression == ''
   end
 end 
@@ -29,11 +29,11 @@ class Bob
     type = StringType.new(expression)
     
     
-    if type.is_yelling
+    if type.is_yelling?
       @responses['yell']
-    elsif type.is_question
+    elsif type.is_question?
       @responses['question']
-    elsif type.is_nothing
+    elsif type.is_nothing?
       @responses['nothing']
     else
       @responses['']
