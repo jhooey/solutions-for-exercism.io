@@ -1,3 +1,22 @@
+class StringType
+  def initialize(expression)
+    @expression = expression
+  end
+  
+  
+  def is_question
+    @expression[-1] == '?'
+  end
+  
+  def is_yelling
+    !(@expression.upcase!) && /[A-Z]+/.match(@expression)
+  end
+  
+  def is_nothing
+    @expression == ''
+  end
+end 
+
 class Bob 
   
   def initialize
@@ -7,27 +26,17 @@ class Bob
 
   def hey (expression)
     expression = expression.strip
+    type = StringType.new(expression)
     
-    if is_yelling(expression)
+    
+    if type.is_yelling
       @responses['yell']
-    elsif is_question(expression)
+    elsif type.is_question
       @responses['question']
-    elsif is_nothing(expression)
+    elsif type.is_nothing
       @responses['nothing']
     else
       @responses['']
     end
-  end
-  
-  def is_question (expression)
-    expression[-1] == '?'
-  end
-  
-  def is_yelling (expression)
-    !expression.upcase! && /[A-Z]+/.match(expression)
-  end
-  
-  def is_nothing (expression)
-    expression == ''
   end
 end
