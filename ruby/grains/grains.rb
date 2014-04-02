@@ -1,8 +1,9 @@
 class Grains
   
   def initialize
-    @squares = *(1..64)
-    @squares.map! { |a| 2**(a-1) }
+    x = 1 #This problem requires a starting value of 1
+    @squares = *(1..64) #64 squares on a chess board
+    @squares.map! { |a| 2**(a-1) *x }
   end
   
   def square(x)
