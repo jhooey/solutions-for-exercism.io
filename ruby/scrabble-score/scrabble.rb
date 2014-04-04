@@ -10,7 +10,7 @@ class Scrabble
                 'j' => 8, 'x' => 8,
                 'q' => 10, 'z' => 10
               }
-              
+    @scores.default = 0          
     #handles a nil          
     if ! word
       word =''
@@ -24,7 +24,7 @@ class Scrabble
     arr_word = word.split("")
     score = 0
     arr_word.each do |letter|
-      score += @scores[letter]
+        score += @scores[letter]
     end
     
     score
