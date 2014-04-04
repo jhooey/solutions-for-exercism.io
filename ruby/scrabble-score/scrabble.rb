@@ -28,7 +28,6 @@ class Scoring
                 'q' => 10, 'z' => 10
               }
     @scores.default = 0
-    
   end
   
   def calculate_score(word)
