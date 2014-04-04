@@ -1,6 +1,23 @@
 class Scrabble
 
   def initialize(word)
+    @scoring = Scoring.new
+    @score = @scoring.calculate_score(word)
+  end
+  
+  def score
+    @score
+  end
+  
+  def self.score(word)
+    scoring = Scoring.new
+    scoring.calculate_score(word)
+  end
+end
+
+class Scoring
+  
+  def initialize
     @scores = { 'a' => 1, 'e' => 1, 'i' => 1, 'o' => 1, 'u' => 1,
                 'l' => 1, 'n' => 1, 'r' => 1, 's' => 1, 't' => 1,
                 'd' => 2, 'g' => 2,
@@ -10,27 +27,19 @@ class Scrabble
                 'j' => 8, 'x' => 8,
                 'q' => 10, 'z' => 10
               }
-    @scores.default = 0          
-    #handles a nil          
-    if ! word
-      word =''
-    end
-   
-   @score = calculate_score(word)
+    @scores.default = 0
+    
   end
   
   def calculate_score(word)
-    word = word.downcase
-    arr_word = word.split("")
+    if !word then word ='' end #handles a nil value
+    
+    arr_word = word.downcase.split("")
     score = 0
     arr_word.each do |letter|
         score += @scores[letter]
     end
     
     score
-  end
-  
-  def score
-    @score
   end
 end
