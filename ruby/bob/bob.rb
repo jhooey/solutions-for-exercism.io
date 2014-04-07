@@ -1,6 +1,6 @@
 class StringType
   def initialize(expression)
-    @expression = expression
+    @expression = expression.strip
   end
   
   
@@ -25,7 +25,6 @@ class Bob
   end
 
   def hey (expression)
-    expression = expression.strip
     type = StringType.new(expression)
     
     
