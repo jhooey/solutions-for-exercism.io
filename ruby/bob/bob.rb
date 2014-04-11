@@ -3,7 +3,6 @@ class StringType
     @expression = expression.strip
   end
   
-  
   def is_question?
     @expression[-1] == '?'
   end
@@ -26,7 +25,6 @@ class Bob
 
   def hey (expression)
     type = StringType.new(expression)
-    
     
     if type.is_yelling?
       @responses['yell']
