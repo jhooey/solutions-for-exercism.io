@@ -4,13 +4,6 @@ class Phrase
   end
   
   def word_count
-    counts = {}
-    counts.default = 0
-    
-    @phrase.each do |word|
-      counts[word] > 0? counts[word] += 1 : counts[word] = 1
-    end
-    
-    counts
+    @phrase.each_with_object(Hash.new(0)) { |word, counts| counts[word] += 1 }
   end
 end
