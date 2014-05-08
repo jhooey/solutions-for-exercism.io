@@ -18,6 +18,6 @@ class Hamming
        end
     end
     
-    return count
+    count
   end
 end
