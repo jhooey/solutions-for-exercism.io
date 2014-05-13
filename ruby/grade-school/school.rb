@@ -15,9 +15,5 @@ class School
   end
   def grade (grade)
     @registry.fetch(grade, [])
-    #if @registry[grade] 
-    #  return @registry[grade]
-    #end
-    #[]
   end
 end
